@@ -1,7 +1,8 @@
 # OCPS 1.0: The Baseline
 
-**Status: DRAFT**
-**Date: 2025-07-03**
+**Status:** FINAL  
+**Revision:** 1  
+**Date:** 2025-07-03    
 
 ## 1. Introduction
 
@@ -36,13 +37,13 @@ An OCPS 1.0 pattern MUST consist of five fields separated by whitespace. A compl
 
 ### 4.2. Field Values
 
-| Field          | Required | Allowed Values  |
-| :------------- | :------- | :-------------- |
-| **Minute** | Yes      | 0-59            |
-| **Hour** | Yes      | 0-23            |
-| **Day of Month** | Yes      | 1-31            |
-| **Month** | Yes      | 1-12 or JAN-DEC |
-| **Day of Week** | Yes      | 0-7 or SUN-SAT  |
+| Field | Required | Allowed Values |
+| :--- | :--- | :--- |
+| **Minute** | Yes | 0-59 |
+| **Hour** | Yes | 0-23 |
+| **Day of Month** | Yes | 1-31 |
+| **Month** | Yes | 1-12 or JAN-DEC |
+| **Day of Week**| Yes | 0-7 or SUN-SAT |
 
 * Month and Day of Week names MUST be treated as case-insensitive.
 * In the Day of Week field, `0` and `7` MUST both be treated as Sunday.
@@ -58,12 +59,12 @@ After converting any textual representations (e.g., `JAN`, `SUN`) to their numer
 ---
 ## 5. Special Characters
 
-| Character | Name           | Example      | Description                                                                                                |
-| :-------- | :------------- | :----------- | :--------------------------------------------------------------------------------------------------------- |
-| `*`       | Wildcard       | `* * * * *`  | Matches every allowed value for the field.                                                                 |
-| `,`       | List Separator | `0,15,30,45` | Specifies a list of individual values.                                                                     |
-| `-`       | Range          | `9-17`       | Specifies an inclusive range of values.                                                                    |
-| `/`       | Step           | `5-59/15`    | Specifies an interval. The step operates on the range it modifies, yielding `5,20,35,50` for this example. |
+| Character | Name | Example | Description |
+| :--- | :--- | :--- | :--- |
+| `*` | Wildcard | `* * * * *` | Matches every allowed value for the field. |
+| `,` | List Separator | `0,15,30,45` | Specifies a list of individual values. |
+| `-` | Range | `9-17` | Specifies an inclusive range of values. |
+| `/` | Step | `5-59/15` | Specifies an interval. The step operates on the range it modifies, yielding `5,20,35,50` for this example. |
 
 ### 5.1. Combining Special Characters
 
@@ -108,3 +109,10 @@ To allow for flexibility while maintaining a stable standard, the following rule
 OCPS 1.0 patterns are **timezone-agnostic**.
 
 A compliant parser or scheduler MUST interpret the pattern against the implementation's local time. The mechanism for defining this local time is an implementation detail, as per Section 6.3.
+
+---
+## Appendix A: Revision History
+
+| Revision | Date | Author(s) | Description of Changes |
+| :--- | :--- | :--- | :--- |
+| 1 | 2025-07-03 | The OCPS Authors | Initial publication of the 1.0 specification. |
